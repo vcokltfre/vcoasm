@@ -2,8 +2,14 @@ from abc import ABC, abstractmethod
 
 
 class Compilable(ABC):
-    def __init__(self, value):
+    def __init__(self, value) -> None:
         self.value = value
+
+    def __repr__(self) -> str:
+        return f"<{self.__class__.__qualname__} value={self.value}>"
+
+    def __str__(self) -> str:
+        return self.__repr__()
 
     @abstractmethod
     def compile(self) -> bytearray:
@@ -36,5 +42,5 @@ class DebugInfo(Compilable):
 
     def compile(self) -> bytearray:
         b = bytearray([0xFF])
-        b.extend(String("@debug: " + self.value))
+        b.extend(String(self.value))
         return b
