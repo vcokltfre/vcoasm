@@ -44,3 +44,10 @@ class DebugInfo(Compilable):
         b = bytearray([0xFF])
         b.extend(String(self.value).compile())
         return b
+
+
+class Identifier(Compilable):
+    def compile(self) -> bytearray:
+        b = bytearray([0xF4])
+        b.extend(String(self.value).compile())
+        return b
