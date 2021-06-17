@@ -1,0 +1,21 @@
+; Made by vcokltfre
+; Simple counter from 0 to 10
+
+; Initialisation
+VAR count 10    ; Load loop count into a variable
+
+; Main logic
+gt start        ; Create a goto named start
+
+LDA 10          ; Load 10 into the accumulator
+SUB count       ; Subtract count from the value in the accumulator
+OUT             ; Output the accumulator value
+
+LDA count       ; Load count into the accumulator
+SUB 1           ; Subtract 1 from the value in the accumulator
+STA             ; Store the value back into count
+
+JMPZ end        ; Jump to end if the accumulator value is 0
+JMP start       ; Jump to start
+
+gt end          ; Create a goto named end
