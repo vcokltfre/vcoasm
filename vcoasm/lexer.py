@@ -54,7 +54,7 @@ class Lexer:
                 # String
                 tokens.append(Token("string", token, self.file, lineno))
                 continue
-            elif IDT_RE.match(token):
+            elif IDT_RE.match(token) and token.upper() not in keywords:
                 tokens.append(Token("identifier", token, self.file, lineno))
                 continue
             token = token.upper()
