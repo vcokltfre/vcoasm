@@ -31,6 +31,9 @@ class String(Compilable):
 
 
 class DebugInfo(Compilable):
+    def __init__(self, file: str, line: int) -> None:
+        self.value = f"{line}@{file}"
+
     def compile(self) -> bytearray:
         b = bytearray([0xFF])
         b.extend(String("@debug: " + self.value))
