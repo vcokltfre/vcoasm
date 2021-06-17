@@ -50,6 +50,8 @@ class Lexer:
         tokens = []
 
         for token in raw_tokens:
+            if not token:
+                continue
             if token.startswith('"'):
                 # String
                 tokens.append(Token("string", token[1:-1], self.file, lineno))
