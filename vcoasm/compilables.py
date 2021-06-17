@@ -42,5 +42,5 @@ class DebugInfo(Compilable):
 
     def compile(self) -> bytearray:
         b = bytearray([0xFF])
-        b.extend(String(self.value))
+        b.extend(String(self.value).compile())
         return b
