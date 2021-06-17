@@ -52,7 +52,7 @@ class Lexer:
         for token in raw_tokens:
             if token.startswith('"'):
                 # String
-                tokens.append(Token("string", token, self.file, lineno))
+                tokens.append(Token("string", token[1:-1], self.file, lineno))
                 continue
             elif IDT_RE.match(token) and token.upper() not in keywords:
                 tokens.append(Token("identifier", token, self.file, lineno))
