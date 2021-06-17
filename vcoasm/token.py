@@ -5,3 +5,6 @@ from dataclasses import dataclass
 class Token:
     type: str
     value: str
+
+    file: str
+    line: int
